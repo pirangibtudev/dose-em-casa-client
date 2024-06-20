@@ -1,6 +1,8 @@
+import { User } from "../user/user"
+
 export class AuthResponse {
-  /** @type {{[_: string]: any}} */
-  User // TODO: PASS USER MODEL
+  /** @type {User} */
+  User
   /** @type {string} */
   Token
 }
