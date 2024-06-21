@@ -1,4 +1,4 @@
-import { Entity } from "../entity"
+import { Entity } from "../entity.js"
 
 export class User extends Entity {
   /** @type {string} */

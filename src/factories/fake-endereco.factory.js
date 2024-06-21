@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker"
-import { Endereco } from "../models/endereco/endereco"
+import { Endereco } from "../models/endereco/endereco.js"
 
 export class FakeEnderecoFactory {
   static create() {

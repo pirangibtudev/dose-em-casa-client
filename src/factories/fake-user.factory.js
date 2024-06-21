@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker"
-import { User } from "../models/user/user"
+import { User } from "../models/user/user.js"
 import * as cpf from "@fnando/cpf"
-import { Roles } from "../enums/roles"
+import { Roles } from "../enums/roles.js"
 
 export class FakeUserFactory {
   static create() {

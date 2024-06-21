@@ -1,8 +1,8 @@
-import { Endereco } from "../models/endereco/endereco"
-import { EnderecoCreate } from "../models/endereco/endereco-create"
-import { EnderecoUpdate } from "../models/endereco/endereco-update"
-import { ServiceResponse } from "../models/service-response"
-import { Service } from "./service"
+import { Endereco } from "../models/endereco/endereco.js"
+import { EnderecoCreate } from "../models/endereco/endereco-create.js"
+import { EnderecoUpdate } from "../models/endereco/endereco-update.js"
+import { ServiceResponse } from "../models/service-response.js"
+import { Service } from "./service.js"
 
 export class EnderecoService extends Service {
   /** @param {import("./service.js").ServiceConstructorProps} values  */

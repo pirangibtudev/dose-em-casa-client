@@ -1,7 +1,7 @@
-import { ServiceResponse } from "../models/service-response"
-import { Unidade } from "../models/unidade/unidade"
-import { UnidadeCreate } from "../models/unidade/unidade-create"
-import { UnidadeUpdate } from "../models/unidade/unidade-update"
+import { ServiceResponse } from "../models/service-response.js"
+import { Unidade } from "../models/unidade/unidade.js"
+import { UnidadeCreate } from "../models/unidade/unidade-create.js"
+import { UnidadeUpdate } from "../models/unidade/unidade-update.js"
 import { Service } from "./service.js"
 
 export class UnidadeService extends Service {

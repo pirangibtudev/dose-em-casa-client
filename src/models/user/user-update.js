@@ -1,5 +1,3 @@
-import { User } from "./user"
-
 export class UserUpdate {
   /** @type {string | undefined} */
   Username

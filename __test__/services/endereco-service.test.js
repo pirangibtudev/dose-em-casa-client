@@ -35,8 +35,6 @@ describe("endereco service test", () => {
       FakeEnderecoFactory.create(),
     )
 
-    console.log(created.ID)
-
     const { status, errorMessage } = await enderecoService.update(created.ID, {
       ...created,
       Telefone: "" + faker.number.int({ min: 10000000000, max: 99999999999 }),

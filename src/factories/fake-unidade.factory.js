@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker"
-import { Unidade } from "../models/unidade/unidade"
+import { Unidade } from "../models/unidade/unidade.js"
 
 export class FakeUnidadeFactory {
   static create() {

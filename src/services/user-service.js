@@ -1,7 +1,7 @@
-import { ServiceResponse } from "../models/service-response"
-import { User } from "../models/user/user"
-import { UserUpdate } from "../models/user/user-update"
-import { Service } from "./service"
+import { ServiceResponse } from "../models/service-response.js"
+import { User } from "../models/user/user.js"
+import { UserUpdate } from "../models/user/user-update.js"
+import { Service } from "./service.js"
 
 export class UserService extends Service {
   /** @param {import("./service.js").ServiceConstructorProps} values  */
