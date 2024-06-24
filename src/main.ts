@@ -16,20 +16,20 @@ export { UnidadeService } from "./services/unidade-service"
 export { UserService } from "./services/user-service"
 
 export default class DoseEmCasaClient {
-  _basePath: string = ""
+  #basePath: string = ""
   get basePath() {
-    return this._basePath
+    return this.#basePath
   }
   set basePath(value) {
-    this._basePath = value
+    this.#basePath = value
     this.#updateParams()
   }
-  _authorization: string = ""
+  #authorization: string = ""
   get authorization() {
-    return this._authorization
+    return this.#authorization
   }
   set authorization(value) {
-    this._authorization = value
+    this.#authorization = value
     this.#updateParams()
   }
 
