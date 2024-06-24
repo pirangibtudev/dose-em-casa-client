@@ -1,1 +1,5 @@
 export { AuthService } from "./services/auth-service.js"
+export { EnderecoService } from "./services/endereco-service.js"
+export { PacienteService } from "./services/paciente-service.js"
+export { UnidadeService } from "./services/unidade-service.js"
+export { UserService } from "./services/user-service.js"
