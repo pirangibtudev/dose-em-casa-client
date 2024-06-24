@@ -10,6 +10,7 @@ export class PessoaAutorizadaService extends Service {
     super(values)
   }
 
+  /** @returns {Promise<ServiceResponse<PessoaAutorizada[]>>} */
   async getAll() {
     const res = await this.fetcher({
       method: "GET",
@@ -31,7 +32,10 @@ export class PessoaAutorizadaService extends Service {
     return ServiceResponse.ParseFetch(res, new PessoaAutorizada())
   }
 
-  /** @param {PessoaAutorizadaCreate} model  */
+  /**
+   * @param {PessoaAutorizadaCreate} model
+   * @returns {Promise<ServiceResponse<PessoaAutorizada>>}
+   */
   async create(model) {
     const res = await this.fetcher({
       method: "POST",
@@ -46,6 +50,7 @@ export class PessoaAutorizadaService extends Service {
   /**
    * @param {number} id
    * @param {PessoaAutorizadaUpdate} model
+   * @returns {Promise<ServiceResponse<PessoaAutorizada>>}
    */
   async update(id, model) {
     const res = await this.fetcher({
@@ -58,7 +63,10 @@ export class PessoaAutorizadaService extends Service {
     return ServiceResponse.ParseFetch(res, new PessoaAutorizada())
   }
 
-  /** @param {number} id  */
+  /**
+   * @param {number} id
+   * @returns {Promise<ServiceResponse<PessoaAutorizada>>}
+   */
   async delete(id) {
     const res = await this.fetcher({
       method: "DELETE",

@@ -9,7 +9,10 @@ export class UserService extends Service {
     super(values)
   }
 
-  /** @param {UserUpdate} values  */
+  /**
+   * @param {UserUpdate} values
+   * @returns {Promise<ServiceResponse<User>>}
+   */
   async update(values) {
     const result = await this.fetcher({
       method: "PUT",

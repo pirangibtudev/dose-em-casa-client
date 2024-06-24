@@ -10,6 +10,7 @@ export class EnderecoService extends Service {
     super(values)
   }
 
+  /** @returns {Promise<ServiceResponse<Endereco[]>>} */
   async getAll() {
     const res = await this.fetcher({
       method: "GET",
@@ -20,7 +21,10 @@ export class EnderecoService extends Service {
     return ServiceResponse.ParseFetch(res, [new Endereco()])
   }
 
-  /** @param {number} id  */
+  /**
+   * @param {number} id
+   * @returns {Promise<ServiceResponse<Endereco>>}
+   */
   async getById(id) {
     const res = await this.fetcher({
       method: "GET",
@@ -31,7 +35,10 @@ export class EnderecoService extends Service {
     return ServiceResponse.ParseFetch(res, new Endereco())
   }
 
-  /** @param {EnderecoCreate} model  */
+  /**
+   * @param {EnderecoCreate} model
+   * @returns {Promise<ServiceResponse<Endereco>>}
+   */
   async create(model) {
     const res = await this.fetcher({
       method: "POST",
@@ -46,6 +53,7 @@ export class EnderecoService extends Service {
   /**
    * @param {number} id
    * @param {EnderecoUpdate} model
+   * @returns {Promise<ServiceResponse<Endereco>>}
    */
   async update(id, model) {
     const res = await this.fetcher({
@@ -58,7 +66,10 @@ export class EnderecoService extends Service {
     return ServiceResponse.ParseFetch(res, new Endereco())
   }
 
-  /** @param {number} id  */
+  /**
+   * @param {number} id
+   * @returns {Promise<ServiceResponse<Endereco>>}
+   */
   async delete(id) {
     const res = await this.fetcher({
       method: "DELETE",

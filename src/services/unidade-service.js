@@ -10,6 +10,7 @@ export class UnidadeService extends Service {
     super(values)
   }
 
+  /** @returns {Promise<ServiceResponse<Unidade[]>>} */
   async getAll() {
     const res = await this.fetcher({
       method: "GET",
@@ -20,7 +21,10 @@ export class UnidadeService extends Service {
     return ServiceResponse.ParseFetch(res, [new Unidade()])
   }
 
-  /** @param {number} id  */
+  /**
+   * @param {number} id
+   * @returns {Promise<ServiceResponse<Unidade>>}
+   */
   async getById(id) {
     const res = await this.fetcher({
       method: "GET",
@@ -31,7 +35,10 @@ export class UnidadeService extends Service {
     return ServiceResponse.ParseFetch(res, new Unidade())
   }
 
-  /** @param {UnidadeCreate} model  */
+  /**
+   * @param {UnidadeCreate} model
+   * @returns {Promise<ServiceResponse<Unidade>>}
+   */
   async create(model) {
     const res = await this.fetcher({
       method: "POST",
@@ -46,6 +53,7 @@ export class UnidadeService extends Service {
   /**
    * @param {number} id
    * @param {UnidadeUpdate} model
+   * @returns {Promise<ServiceResponse<Unidade>>}
    */
   async update(id, model) {
     const res = await this.fetcher({
@@ -58,7 +66,10 @@ export class UnidadeService extends Service {
     return ServiceResponse.ParseFetch(res, new Unidade())
   }
 
-  /** @param {number} id  */
+  /**
+   * @param {number} id
+   * @returns {Promise<ServiceResponse<Unidade>>}
+   */
   async delete(id) {
     const res = await this.fetcher({
       method: "DELETE",

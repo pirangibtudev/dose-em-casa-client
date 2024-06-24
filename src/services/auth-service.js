@@ -11,7 +11,10 @@ export class AuthService extends Service {
     super(values)
   }
 
-  /** @param {AuthLogin} credentials */
+  /**
+   * @param {AuthLogin} credentials
+   * @returns {Promise<ServiceResponse<AuthResponse>>}
+   */
   async login(credentials) {
     const fetchResult = await this.fetcher({
       method: "POST",
@@ -22,7 +25,10 @@ export class AuthService extends Service {
     return ServiceResponse.ParseFetch(fetchResult, new AuthResponse())
   }
 
-  /** @param {AuthRegister} credentials */
+  /**
+   * @param {AuthRegister} credentials
+   * @returns {Promise<ServiceResponse<AuthResponse>>}
+   */
   async register(credentials) {
     const fetchResult = await this.fetcher({
       method: "POST",

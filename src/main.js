@@ -34,12 +34,12 @@ export default class DoseEmCasaClient {
     this.#updateParams()
   }
 
-  authService = new AuthService({ ...this })
-  enderecoService = new EnderecoService({ ...this })
-  pacienteService = new PacienteService({ ...this })
-  unidadeService = new UnidadeService({ ...this })
-  userService = new UserService({ ...this })
-  itemEntregaService = new ItemEntregaService({ ...this })
+  authService = new AuthService({})
+  enderecoService = new EnderecoService({})
+  pacienteService = new PacienteService({})
+  unidadeService = new UnidadeService({})
+  userService = new UserService({})
+  itemEntregaService = new ItemEntregaService({})
 
   /** @param {import("./services/service.js").ServiceConstructorProps} options  */
   constructor(options) {
@@ -50,11 +50,16 @@ export default class DoseEmCasaClient {
   }
 
   #updateParams() {
-    this.authService = new AuthService({ ...this })
-    this.enderecoService = new EnderecoService({ ...this })
-    this.pacienteService = new PacienteService({ ...this })
-    this.unidadeService = new UnidadeService({ ...this })
-    this.userService = new UserService({ ...this })
-    this.itemEntregaService = new ItemEntregaService({ ...this })
+    const options = {
+      basePath: this.basePath,
+      authorization: this.authorization,
+    }
+
+    this.authService = new AuthService(options)
+    this.enderecoService = new EnderecoService(options)
+    this.pacienteService = new PacienteService(options)
+    this.unidadeService = new UnidadeService(options)
+    this.userService = new UserService(options)
+    this.itemEntregaService = new ItemEntregaService(options)
   }
 }

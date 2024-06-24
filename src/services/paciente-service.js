@@ -10,6 +10,7 @@ export class PacienteService extends Service {
     super(values)
   }
 
+  /** @returns {Promise<ServiceResponse<Paciente[]>>} */
   async getAll() {
     const res = await this.fetcher({
       method: "GET",
@@ -20,7 +21,10 @@ export class PacienteService extends Service {
     return ServiceResponse.ParseFetch(res, [new Paciente()])
   }
 
-  /** @param {number} id  */
+  /**
+   * @param {number} id
+   * @returns {Promise<ServiceResponse<Paciente>>}
+   */
   async getById(id) {
     const res = await this.fetcher({
       method: "GET",
@@ -31,7 +35,10 @@ export class PacienteService extends Service {
     return ServiceResponse.ParseFetch(res, new Paciente())
   }
 
-  /** @param {PacienteCreate} model  */
+  /**
+   * @param {PacienteCreate} model
+   * @returns {Promise<ServiceResponse<Paciente>>}
+   */
   async create(model) {
     const res = await this.fetcher({
       method: "POST",
@@ -46,6 +53,7 @@ export class PacienteService extends Service {
   /**
    * @param {number} id
    * @param {PacienteUpdate} model
+   * @returns {Promise<ServiceResponse<Paciente>>}
    */
   async update(id, model) {
     const res = await this.fetcher({
@@ -58,7 +66,10 @@ export class PacienteService extends Service {
     return ServiceResponse.ParseFetch(res, new Paciente())
   }
 
-  /** @param {number} id  */
+  /**
+   * @param {number} id
+   * @returns {Promise<ServiceResponse<Paciente>>}
+   */
   async delete(id) {
     const res = await this.fetcher({
       method: "DELETE",

@@ -10,6 +10,7 @@ export class ItemEntregaService extends Service {
     super(values)
   }
 
+  /** @returns {Promise<ServiceResponse<ItemEntrega[]>>} */
   async getAll() {
     const res = await this.fetcher({
       method: "GET",
@@ -20,7 +21,10 @@ export class ItemEntregaService extends Service {
     return ServiceResponse.ParseFetch(res, [new ItemEntrega()])
   }
 
-  /** @param {number} id  */
+  /**
+   * @param {number} id
+   * @returns {Promise<ServiceResponse<ItemEntrega>>}
+   */
   async getById(id) {
     const res = await this.fetcher({
       method: "GET",
@@ -31,7 +35,10 @@ export class ItemEntregaService extends Service {
     return ServiceResponse.ParseFetch(res, new ItemEntrega())
   }
 
-  /** @param {ItemEntregaCreate} model  */
+  /**
+   * @param {ItemEntregaCreate} model
+   * @returns {Promise<ServiceResponse<ItemEntrega>>}
+   */
   async create(model) {
     const res = await this.fetcher({
       method: "POST",
@@ -46,6 +53,7 @@ export class ItemEntregaService extends Service {
   /**
    * @param {number} id
    * @param {ItemEntregaUpdate} model
+   * @returns {Promise<ServiceResponse<ItemEntrega>>}
    */
   async update(id, model) {
     const res = await this.fetcher({
@@ -58,7 +66,10 @@ export class ItemEntregaService extends Service {
     return ServiceResponse.ParseFetch(res, new ItemEntrega())
   }
 
-  /** @param {number} id  */
+  /**
+   * @param {number} id
+   * @returns {Promise<ServiceResponse<ItemEntrega>>}
+   */
   async delete(id) {
     const res = await this.fetcher({
       method: "DELETE",
