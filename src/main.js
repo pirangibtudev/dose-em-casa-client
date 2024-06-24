@@ -25,7 +25,14 @@ export default class DoseEmCasaClient {
     this.#updateParams()
   }
   /** @type {string} */
-  authorization
+  _authorization
+  get authorization() {
+    return this._authorization
+  }
+  set authorization(value) {
+    this._authorization = value
+    this.#updateParams()
+  }
 
   authService = new AuthService({ ...this })
   enderecoService = new EnderecoService({ ...this })
