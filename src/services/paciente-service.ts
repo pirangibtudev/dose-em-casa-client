@@ -1,3 +1,4 @@
+import { GetAllOptions } from "../@types/get-all-options"
 import { Paciente } from "../models/paciente/paciente"
 import { PacienteCreate } from "../models/paciente/paciente-create"
 import { PacienteUpdate } from "../models/paciente/paciente-update"
@@ -9,11 +10,14 @@ export class PacienteService extends Service {
     super(values)
   }
 
-  async getAll(): Promise<ServiceResponse<Paciente[]>> {
+  async getAll(
+    options?: Partial<GetAllOptions<Paciente>>,
+  ): Promise<ServiceResponse<Paciente[]>> {
     const res = await this.fetcher({
       method: "GET",
       url: `${this.basePath}/pacientes`,
       headers: { Authorization: this.authorization },
+      params: { ...options },
     })
 
     return ServiceResponse.ParseFetch(res!, [new Paciente()])

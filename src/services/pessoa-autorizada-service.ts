@@ -1,3 +1,4 @@
+import { GetAllOptions } from "../@types/get-all-options"
 import { PessoaAutorizada } from "../models/pessoa-autorizada/pessoa-autorizada"
 import { PessoaAutorizadaCreate } from "../models/pessoa-autorizada/pessoa-autorizada-create"
 import { PessoaAutorizadaUpdate } from "../models/pessoa-autorizada/pessoa-autorizada-update"
@@ -9,11 +10,14 @@ export class PessoaAutorizadaService extends Service {
     super(values)
   }
 
-  async getAll(): Promise<ServiceResponse<PessoaAutorizada[]>> {
+  async getAll(
+    options?: Partial<GetAllOptions<PessoaAutorizada>>,
+  ): Promise<ServiceResponse<PessoaAutorizada[]>> {
     const res = await this.fetcher({
       method: "GET",
       url: `${this.basePath}/pessoa_autorizadas`,
       headers: { Authorization: this.authorization },
+      params: { ...options },
     })
 
     return ServiceResponse.ParseFetch(res!, [new PessoaAutorizada()])

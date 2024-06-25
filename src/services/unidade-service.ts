@@ -1,3 +1,4 @@
+import { GetAllOptions } from "../@types/get-all-options"
 import { ServiceResponse } from "../models/service-response"
 import { Unidade } from "../models/unidade/unidade"
 import { UnidadeCreate } from "../models/unidade/unidade-create"
@@ -9,11 +10,14 @@ export class UnidadeService extends Service {
     super(values)
   }
 
-  async getAll(): Promise<ServiceResponse<Unidade[]>> {
+  async getAll(
+    options?: Partial<GetAllOptions<Unidade>>,
+  ): Promise<ServiceResponse<Unidade[]>> {
     const res = await this.fetcher({
       method: "GET",
       url: `${this.basePath}/unidades`,
       headers: { Authorization: this.authorization },
+      params: { ...options },
     })
 
     return ServiceResponse.ParseFetch(res!, [new Unidade()])

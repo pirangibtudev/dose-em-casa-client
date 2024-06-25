@@ -1,3 +1,4 @@
+import { GetAllOptions } from "../@types/get-all-options"
 import { ItemEntrega } from "../models/item-entrega/item-entrega"
 import { ItemEntregaCreate } from "../models/item-entrega/item-entrega-create"
 import { ItemEntregaUpdate } from "../models/item-entrega/item-entrega-update"
@@ -9,11 +10,14 @@ export class ItemEntregaService extends Service {
     super(values)
   }
 
-  async getAll(): Promise<ServiceResponse<ItemEntrega[]>> {
+  async getAll(
+    options?: Partial<GetAllOptions<ItemEntrega>>,
+  ): Promise<ServiceResponse<ItemEntrega[]>> {
     const res = await this.fetcher({
       method: "GET",
       url: `${this.basePath}/item_entregas`,
       headers: { Authorization: this.authorization },
+      params: { ...options },
     })
 
     return ServiceResponse.ParseFetch(res!, [new ItemEntrega()])

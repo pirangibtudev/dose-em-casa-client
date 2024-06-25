@@ -1,3 +1,4 @@
+import { GetAllOptions } from "../@types/get-all-options"
 import { Endereco } from "../models/endereco/endereco"
 import { EnderecoCreate } from "../models/endereco/endereco-create"
 import { EnderecoUpdate } from "../models/endereco/endereco-update"
@@ -9,20 +10,19 @@ export class EnderecoService extends Service {
     super(values)
   }
 
-  async getAll(): Promise<ServiceResponse<Endereco[]>> {
+  async getAll(
+    options?: Partial<GetAllOptions<Endereco>>,
+  ): Promise<ServiceResponse<Endereco[]>> {
     const res = await this.fetcher({
       method: "GET",
       url: `${this.basePath}/enderecos`,
       headers: { Authorization: this.authorization },
+      params: { ...options },
     })
 
     return ServiceResponse.ParseFetch(res!, [new Endereco()])
   }
 
-  /**
-   * @param {number} id
-   * @returns {Promise<ServiceResponse<Endereco>>}
-   */
   async getById(id: number): Promise<ServiceResponse<Endereco>> {
     const res = await this.fetcher({
       method: "GET",

@@ -1,8 +1,9 @@
 import { faker } from "@faker-js/faker"
 import { FakeUserFactory } from "../../src/factories/fake-user.factory"
-import { AuthService } from "../../src/main"
+import DoseEmCasaClient, { AuthService } from "../../src/main"
 import { EnderecoService } from "../../src/services/endereco-service"
 import { FakeEnderecoFactory } from "../../src/factories/fake-endereco.factory"
+import { Endereco } from "../../src/models/endereco/endereco"
 
 describe("endereco service test", () => {
   let enderecoService!: EnderecoService
@@ -64,5 +65,34 @@ describe("endereco service test", () => {
     const { status } = await enderecoService.getAll()
 
     expect(status).toBe(200)
+  })
+
+  it("search a endereco", async () => {
+    const dose = new DoseEmCasaClient({})
+    const {
+      data: { Token },
+    } = await dose.authService.login({
+      Username: "admin",
+      Password: "admin@1234",
+    })
+    dose.authorization = `Bearer ${Token}`
+    const usr = await dose.authService.register(FakeUserFactory.create())
+    dose.authorization = `Bearer ${usr.data.Token}`
+
+    const { data: end } = await dose.enderecoService.create(
+      FakeEnderecoFactory.create(),
+    )
+
+    const {
+      data: [first],
+    } = await dose.enderecoService.getAll({
+      fieldSearch: JSON.stringify({
+        Bairro: end.Bairro,
+        Numero: end.Numero.toString(),
+        Logradouro: end.Logradouro,
+      } satisfies Partial<{ [x in keyof Endereco]: string }>),
+    })
+
+    expect(first).toEqual(end)
   })
 })
