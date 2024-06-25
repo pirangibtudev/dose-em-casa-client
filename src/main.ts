@@ -6,6 +6,8 @@ import {
   UnidadeService,
   UserService,
 } from "./main"
+import { PessoaAutorizadaService } from "./services/pessoa-autorizada-service"
+import { PrescricaoService } from "./services/prescricao-service"
 import { ServiceConstructorProps } from "./services/service"
 
 export { AuthService } from "./services/auth-service"
@@ -39,6 +41,8 @@ export default class DoseEmCasaClient {
   unidadeService = new UnidadeService({})
   userService = new UserService({})
   itemEntregaService = new ItemEntregaService({})
+  pessoaAutorizadaService = new PessoaAutorizadaService({})
+  prescricaoService = new PrescricaoService({})
 
   constructor(options: ServiceConstructorProps) {
     this.basePath = options.basePath || this.basePath
@@ -59,5 +63,7 @@ export default class DoseEmCasaClient {
     this.unidadeService = new UnidadeService(options)
     this.userService = new UserService(options)
     this.itemEntregaService = new ItemEntregaService(options)
+    this.pessoaAutorizadaService = new PessoaAutorizadaService(options)
+    this.prescricaoService = new PrescricaoService(options)
   }
 }
