@@ -2,12 +2,12 @@ import { faker } from "@faker-js/faker"
 import { FakeEnderecoFactory } from "../../src/factories/fake-endereco.factory"
 import { FakePacienteFactory } from "../../src/factories/fake-paciente.factory"
 import { FakePrescricaoFactory } from "../../src/factories/fake-prescricao.factory"
-import { FakeProdutoFactory } from "../../src/factories/fake-produto.factory"
+import { FakePrincipioAtivoFactory } from "../../src/factories/fake-principio-ativo.factory"
 import { FakeUnidadeFactory } from "../../src/factories/fake-unidade.factory"
 import { FakeUserFactory } from "../../src/factories/fake-user.factory"
 import DoseEmCasaClient from "../../src/main"
 
-describe("produto service test", () => {
+describe("principio ativo service test", () => {
   const client = new DoseEmCasaClient({})
 
   beforeAll(async () => {
@@ -63,59 +63,57 @@ describe("produto service test", () => {
     return prescricaoRes
   }
 
-  it("create a new produto", async () => {
+  it("create a new principio ativo", async () => {
     const { data: prescricao } = await createPrescricao()
 
-    const { status } = await client.produtoService.create(
-      FakeProdutoFactory.create({
-        PrescricaoID: prescricao.ID,
-      }),
+    const { status } = await client.principioAtivoService.create(
+      FakePrincipioAtivoFactory.create({ PrescricaoID: prescricao.ID }),
     )
 
     expect(status).toBe(201)
   })
 
-  it("create a new produto and update", async () => {
+  it("create a new principio ativo and update", async () => {
     const { data: prescricao } = await createPrescricao()
 
-    const { data: created } = await client.produtoService.create(
-      FakeProdutoFactory.create({
-        PrescricaoID: prescricao.ID,
-      }),
+    const { data: created } = await client.principioAtivoService.create(
+      FakePrincipioAtivoFactory.create({ PrescricaoID: prescricao.ID }),
     )
 
-    const { status } = await client.produtoService.update(created.ID, {
+    const { status } = await client.principioAtivoService.update(created.ID, {
       ...created,
-      Nome: faker.company.name(),
+      Nome: faker.word.words({ count: { min: 1, max: 5 } }),
     })
 
     expect(status).toBe(200)
   })
 
-  it("create a new produto and delete", async () => {
+  it("create a new principio ativo and delete", async () => {
     const { data: prescricao } = await createPrescricao()
 
-    const { data: created } = await client.produtoService.create(
-      FakeProdutoFactory.create({ PrescricaoID: prescricao.ID }),
+    const { data: created } = await client.principioAtivoService.create(
+      FakePrincipioAtivoFactory.create({ PrescricaoID: prescricao.ID }),
     )
 
-    client.produtoService.delete(created.ID)
+    client.principioAtivoService.delete(created.ID)
   })
 
-  it("create and read a produto", async () => {
+  it("create and read a principio ativo", async () => {
     const { data: prescricao } = await createPrescricao()
 
-    const { data: created } = await client.produtoService.create(
-      FakeProdutoFactory.create({ PrescricaoID: prescricao.ID }),
+    const { data: created } = await client.principioAtivoService.create(
+      FakePrincipioAtivoFactory.create({ PrescricaoID: prescricao.ID }),
     )
 
-    const { data: readed } = await client.produtoService.getById(created.ID)
+    const { data: readed } = await client.principioAtivoService.getById(
+      created.ID,
+    )
 
     expect(readed.Nome).toBe(created.Nome)
   })
 
-  it("read all produtos", async () => {
-    const { status } = await client.produtoService.getAll()
+  it("read all principio ativos", async () => {
+    const { status } = await client.principioAtivoService.getAll()
 
     expect(status).toBe(200)
   })
