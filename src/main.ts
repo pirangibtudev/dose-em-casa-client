@@ -13,6 +13,7 @@ import { ProdutoService } from "./services/produto-service"
 import { ReceitaHorarioService } from "./services/receita-horario-service"
 import { ReceitaService } from "./services/receita-service"
 import { ServiceConstructorProps } from "./services/service"
+import { UpdateLogService } from "./services/update-log-service"
 
 export { AuthService } from "./services/auth-service"
 export { EnderecoService } from "./services/endereco-service"
@@ -54,6 +55,7 @@ export default class DoseEmCasaClient {
   principioAtivoService = new PrincipioAtivoService({})
   receitaService = new ReceitaService({})
   receitaHorarioService = new ReceitaHorarioService({})
+  updateLogService = new UpdateLogService({})
 
   constructor(options: ServiceConstructorProps) {
     this.basePath = options.basePath || this.basePath
@@ -80,5 +82,6 @@ export default class DoseEmCasaClient {
     this.principioAtivoService = new PrincipioAtivoService(options)
     this.receitaService = new ReceitaService(options)
     this.receitaHorarioService = new ReceitaHorarioService(options)
+    this.updateLogService = new UpdateLogService(options)
   }
 }
