@@ -1,5 +1,6 @@
 import { Prescricao } from "../prescricao/prescricao"
 import { PrincipioAtivo } from "../principio-ativo/principio-ativo"
+import { ReceitaHorario } from "../receita-horario/receita-horario"
 
 export class ReceitaCreate {
   PrescricaoID!: number
@@ -8,6 +9,9 @@ export class ReceitaCreate {
   PrincipioAtivoID!: number
   PrincipioAtivo?: PrincipioAtivo
 
-  // Horarios []ReceitaHorario
-  Horarios?: any[]
+  Horarios?: ReceitaHorario[]
+
+  DataPrescrita!: Date
+  PrescritoPor!: string
+  Crm!: number
 }

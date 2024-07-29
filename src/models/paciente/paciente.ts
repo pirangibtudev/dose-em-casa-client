@@ -1,20 +1,12 @@
-import { Endereco } from "../endereco/endereco"
 import { Entity } from "../entity"
 import { ItemEntrega } from "../item-entrega/item-entrega"
-import { PessoaAutorizada } from "../pessoa-autorizada/pessoa-autorizada"
-import { Unidade } from "../unidade/unidade"
 
 export class Paciente extends Entity {
-  CodigoProntuario!: number
+  CodigoMatricula!: number
   Nome!: string
-  DataNascimento!: Date
-  Alfabetizado!: boolean
 
   CriterioInclusaoCodigo!: number
   CriterioInclusao!: string
-
-  ResultadoAvaliacaoCodigo!: number
-  ResultadoAvaliacao!: string
 
   ItensEntrega!: ItemEntrega[]
 
@@ -23,21 +15,10 @@ export class Paciente extends Entity {
   InativoMotivo!: string
   InativoData?: Date
 
-  EnderecoResidenciaID!: number
-  EnderecoResidencia?: Endereco
-  EnderecoEntregaID!: number
-  EnderecoEntrega?: Endereco
-
-  UnidadeReferenciaID!: number
-  UnidadeReferencia?: Unidade
-  UnidadeSaudeID!: number
-  UnidadeSaude?: Unidade
-  GrupoCodigo!: number
+  Subgrupo!: string
   Grupo!: string
-  RegiaoCodigo!: number
-  Regiao!: string
+
+  Sexo?: string
 
   DataInclusao!: Date
-
-  PessoasAutorizadas!: PessoaAutorizada[]
 }

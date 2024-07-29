@@ -43,11 +43,6 @@ describe("paciente service test", () => {
     const endereco1 = await enderecoService.create(FakeEnderecoFactory.create())
     const endereco2 = await enderecoService.create(FakeEnderecoFactory.create())
 
-    insertData.UnidadeReferenciaID = unidade1.data.ID
-    insertData.UnidadeSaudeID = unidade2.data.ID
-    insertData.EnderecoEntregaID = endereco1.data.ID
-    insertData.EnderecoResidenciaID = endereco2.data.ID
-
     const { status } = await pacienteService.create(insertData)
 
     expect(status).toBe(201)
@@ -61,17 +56,11 @@ describe("paciente service test", () => {
     const endereco1 = await enderecoService.create(FakeEnderecoFactory.create())
     const endereco2 = await enderecoService.create(FakeEnderecoFactory.create())
 
-    insertData.UnidadeReferenciaID = unidade1.data.ID
-    insertData.UnidadeSaudeID = unidade2.data.ID
-    insertData.EnderecoEntregaID = endereco1.data.ID
-    insertData.EnderecoResidenciaID = endereco2.data.ID
-
     const { data: created } = await pacienteService.create(insertData)
 
     const { status } = await pacienteService.update(created.ID, {
       ...created,
       Nome: faker.person.fullName(),
-      Alfabetizado: faker.datatype.boolean(),
     })
 
     expect(status).toBe(200)
@@ -84,11 +73,6 @@ describe("paciente service test", () => {
     const unidade2 = await unidadeService.create(FakeUnidadeFactory.create())
     const endereco1 = await enderecoService.create(FakeEnderecoFactory.create())
     const endereco2 = await enderecoService.create(FakeEnderecoFactory.create())
-
-    insertData.UnidadeReferenciaID = unidade1.data.ID
-    insertData.UnidadeSaudeID = unidade2.data.ID
-    insertData.EnderecoEntregaID = endereco1.data.ID
-    insertData.EnderecoResidenciaID = endereco2.data.ID
 
     const { data: created } = await pacienteService.create(insertData)
 
@@ -104,11 +88,6 @@ describe("paciente service test", () => {
     const unidade2 = await unidadeService.create(FakeUnidadeFactory.create())
     const endereco1 = await enderecoService.create(FakeEnderecoFactory.create())
     const endereco2 = await enderecoService.create(FakeEnderecoFactory.create())
-
-    insertData.UnidadeReferenciaID = unidade1.data.ID
-    insertData.UnidadeSaudeID = unidade2.data.ID
-    insertData.EnderecoEntregaID = endereco1.data.ID
-    insertData.EnderecoResidenciaID = endereco2.data.ID
 
     const { data: created } = await pacienteService.create(insertData)
 

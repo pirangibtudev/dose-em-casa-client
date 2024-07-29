@@ -11,6 +11,7 @@ export class FakeReceitaHorarioFactory {
     horario.Horario = horarios[Math.floor(Math.random() * horarios.length)]
     horario.Icone
     horario.Quantidade = faker.number.int({ min: 2, max: 20 })
+    horario.PrincipioAtivo = faker.word.words({ count: 4 })
     horario.Obs
 
     return horario

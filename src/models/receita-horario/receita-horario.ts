@@ -8,5 +8,6 @@ export class ReceitaHorario extends Entity {
   Horario!: string
   Icone?: string
   Quantidade!: number
+  PrincipioAtivo!: string
   Obs?: string
 }

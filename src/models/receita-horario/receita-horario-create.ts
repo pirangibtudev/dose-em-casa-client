@@ -7,5 +7,6 @@ export class ReceitaHorarioCreate {
   Horario!: string
   Icone?: string
   Quantidade!: number
+  PrincipioAtivo!: string
   Obs?: string
 }

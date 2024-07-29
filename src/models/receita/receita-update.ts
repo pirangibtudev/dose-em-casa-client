@@ -10,4 +10,8 @@ export class ReceitaUpdate {
 
   // Horarios []ReceitaHorario
   Horarios?: any[]
+
+  DataPrescrita?: Date
+  PrescritoPor?: string
+  Crm?: number
 }
