@@ -1,3 +1,4 @@
+import { Endereco } from "../endereco/endereco"
 import { ItemEntrega } from "../item-entrega/item-entrega"
 
 export class PacienteCreate {
@@ -20,4 +21,9 @@ export class PacienteCreate {
   Sexo?: string
 
   DataInclusao!: Date
+
+  EnderecoID!: string
+  Endereco?: Endereco
+  Fone1!: string
+  Fone2?: string
 }

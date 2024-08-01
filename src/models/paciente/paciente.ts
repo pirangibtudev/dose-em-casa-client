@@ -1,3 +1,4 @@
+import { Endereco } from "../endereco/endereco"
 import { Entity } from "../entity"
 import { ItemEntrega } from "../item-entrega/item-entrega"
 
@@ -21,4 +22,9 @@ export class Paciente extends Entity {
   Sexo?: string
 
   DataInclusao!: Date
+
+  EnderecoID!: string
+  Endereco?: Endereco
+  Fone1!: string
+  Fone2?: string
 }
