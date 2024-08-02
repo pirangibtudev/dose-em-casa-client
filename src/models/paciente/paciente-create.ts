@@ -22,7 +22,7 @@ export class PacienteCreate {
 
   DataInclusao!: Date
 
-  EnderecoID!: string
+  EnderecoID?: string
   Endereco?: Endereco
   Fone1!: string
   Fone2?: string
