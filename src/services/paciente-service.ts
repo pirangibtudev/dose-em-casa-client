@@ -23,6 +23,19 @@ export class PacienteService extends Service {
     return ServiceResponse.ParseFetch(res!, [new Paciente()])
   }
 
+  async countAll(
+    options?: Partial<GetAllOptions<Paciente>>,
+  ): Promise<ServiceResponse<number>> {
+    const res = await this.fetcher({
+      method: "GET",
+      url: `${this.basePath}/pacientes/count`,
+      headers: { Authorization: this.authorization },
+      params: { ...options },
+    })
+
+    return ServiceResponse.ParseFetch(res!, 0)
+  }
+
   async getById(id: number): Promise<ServiceResponse<Paciente>> {
     const res = await this.fetcher({
       method: "GET",
