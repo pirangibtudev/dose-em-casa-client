@@ -5,12 +5,6 @@ import { PrincipioAtivo } from "../principio-ativo/principio-ativo"
 import { ReceitaHorario } from "../receita-horario/receita-horario"
 
 export class Receita extends Entity {
-  PrescricaoID!: number
-  Prescricao?: Prescricao
-
-  PrincipioAtivoID!: number
-  PrincipioAtivo?: PrincipioAtivo
-
   PacienteID!: number
   Paciente?: Paciente
 
@@ -19,4 +13,7 @@ export class Receita extends Entity {
   DataPrescrita!: Date
   PrescritoPor!: string
   Crm!: number
+
+  Insulina!: boolean
+  Insumo?: string
 }

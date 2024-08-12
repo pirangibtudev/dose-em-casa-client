@@ -1,12 +1,10 @@
+import { Paciente } from "../paciente/paciente"
 import { Prescricao } from "../prescricao/prescricao"
 import { PrincipioAtivo } from "../principio-ativo/principio-ativo"
 
 export class ReceitaUpdate {
-  PrescricaoID?: number
-  Prescricao?: Prescricao
-
-  PrincipioAtivoID?: number
-  PrincipioAtivo?: PrincipioAtivo
+  PacienteID?: number
+  Paciente?: Paciente
 
   // Horarios []ReceitaHorario
   Horarios?: any[]
@@ -14,4 +12,7 @@ export class ReceitaUpdate {
   DataPrescrita?: Date
   PrescritoPor?: string
   Crm?: number
+
+  Insulina?: boolean
+  Insumo?: string
 }
