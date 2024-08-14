@@ -33,4 +33,14 @@ export class AuthService extends Service {
 
     return ServiceResponse.ParseFetch(fetchResult!, new AuthResponse())
   }
+
+  async revalidate(): Promise<ServiceResponse<AuthResponse>> {
+    const fetchResult = await this.fetcher({
+      method: "POST",
+      url: `${this.basePath}/auth/revalidate`,
+      headers: { Authorization: this.authorization },
+    })
+
+    return ServiceResponse.ParseFetch(fetchResult!, new AuthResponse())
+  }
 }
