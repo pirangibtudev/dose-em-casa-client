@@ -1,3 +1,4 @@
+import { GetAllOptions } from "../@types/get-all-options"
 import { ServiceResponse } from "../models/service-response"
 import { User } from "../models/user/user"
 import { UserUpdate } from "../models/user/user-update"
@@ -17,5 +18,18 @@ export class UserService extends Service {
     })
 
     return ServiceResponse.ParseFetch(result!, new User())
+  }
+
+  async getAll(
+    options?: Partial<GetAllOptions<User>>,
+  ): Promise<ServiceResponse<User[]>> {
+    const res = await this.fetcher({
+      method: "GET",
+      url: `${this.basePath}/users`,
+      headers: { Authorization: this.authorization },
+      params: { ...options },
+    })
+
+    return ServiceResponse.ParseFetch(res!, [new User()])
   }
 }
