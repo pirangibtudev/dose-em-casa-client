@@ -17,6 +17,7 @@ export class PacienteCreate {
 
   Subgrupo!: string
   Grupo!: string
+  UnidadeReferencia?: string
 
   Sexo?: string
 

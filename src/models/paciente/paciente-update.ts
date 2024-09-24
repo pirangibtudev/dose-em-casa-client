@@ -18,6 +18,7 @@ export class PacienteUpdate {
 
   Subgrupo?: string
   Grupo?: string
+  UnidadeReferencia?: string
 
   Sexo?: string
 

@@ -18,6 +18,7 @@ export class Paciente extends Entity {
 
   Subgrupo!: string
   Grupo!: string
+  UnidadeReferencia?: string
 
   Sexo?: string
 
