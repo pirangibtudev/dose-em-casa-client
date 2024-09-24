@@ -6,7 +6,7 @@ import { Roles } from "../enums/roles"
 export class FakeUserFactory {
   static create() {
     const user = new User()
-    user.Cpf = cpf.generate(false)
+    user.Matricula = cpf.generate(false)
     user.Password = faker.string.alphanumeric({ length: 16 })
     user.Username = faker.person.firstName()
     user.Role = Roles.Default
