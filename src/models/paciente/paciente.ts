@@ -11,6 +11,7 @@ export class Paciente extends Entity {
 
   ItensEntrega!: ItemEntrega[]
 
+  Obito?: boolean
   Inativo!: boolean
   InativoMotivoCodigo?: number
   InativoMotivo!: string

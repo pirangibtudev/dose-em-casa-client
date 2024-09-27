@@ -11,6 +11,7 @@ export class PacienteUpdate {
 
   ItensEntrega?: ItemEntrega[]
 
+  Obito?: boolean
   Inativo?: boolean
   InativoMotivoCodigo?: number
   InativoMotivo?: string
