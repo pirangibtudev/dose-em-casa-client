@@ -28,4 +28,7 @@ export class PacienteCreate {
   Endereco?: Endereco
   Fone1!: string
   Fone2?: string
+
+  NomeSocial?: string
+  Obs?: string
 }

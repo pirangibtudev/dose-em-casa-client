@@ -15,4 +15,7 @@ export class ReceitaCreate {
 
   Insulina!: boolean
   Insumo?: string
+
+  DataAtualizacao?: Date
+  DataValidade!: Date
 }

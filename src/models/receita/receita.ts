@@ -16,4 +16,7 @@ export class Receita extends Entity {
 
   Insulina!: boolean
   Insumo?: string
+
+  DataAtualizacao?: Date
+  DataValidade!: Date
 }
